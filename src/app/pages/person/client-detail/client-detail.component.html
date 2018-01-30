@@ -1,0 +1,54 @@
+<div class="panel panel-primary" *ngIf="client">
+  <nb-card>
+    <nb-card-header>{{"Client Detail: " + client.firstName}}</nb-card-header>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-3">FirstName:</div>
+            <div class="col-md-6">{{client.firstName}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">LastName:</div>
+            <div class="col-md-6">{{client.lastName}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Gender:</div>
+            <div class="col-md-6">{{client.gender}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">phoneNumber:</div>
+            <div class="col-md-6">{{client.phoneNumber}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">typeOfIdentification:</div>
+            <div class="col-md-6">{{client.typeOfIdentification}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">identificationNumber:</div>
+            <div class="col-md-6">{{client.identificationNumber}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">company:</div>
+            <div class="col-md-6">{{client.company}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">status:</div>
+            <div class="col-md-6">{{client.status}}</div>
+          </div>
+        </div>
+      </div>
+      <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+    </div>
+    <nb-card-footer>
+      <div class="panel-footer">
+      <a (click)="onBack()" class="btn btn-primary">Back</a>
+      <a [routerLink]="['/add', client.id]" class="btn btn-primary">Edit</a>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</div>
+
+: string;
+company: string;
+status: boolean;

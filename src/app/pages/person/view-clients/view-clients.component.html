@@ -1,0 +1,59 @@
+<nb-card>
+  <nb-card-header>
+    All Registered Employees
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class='panel-body'>
+      <div class='row'>
+        <div class='col-md-2'>Filter by:</div>
+        <div class='col-md-4'>
+          <input type='text' [(ngModel)]='listFilter'/>
+        </div>
+      </div>
+      <div class='row' *ngIf='listFilter'>
+        <div class='col-md-6'>
+          <h3>Filtered by: {{listFilter}} </h3>
+        </div>
+      </div>
+
+      <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+      <div class='table-responsive'>
+        <table class='table'
+               *ngIf='clients && clients.length'>
+          <thead>
+          <tr>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>gender</th>
+            <th>phoneNumber</th>
+            <th>typeOfIdentification</th>
+            <th>identificationNumber</th>
+            <th>company</th>
+            <th>status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor='let client of clients | clientFilter:listFilter'>
+            <td>{{client.firstName}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{ client.gender}}</td>
+            <td>{{ client.phoneNumber }}</td>
+            <td>{{client.typeOfIdentification}}</td>
+            <td>{{client.identificationNumber}}</td>
+            <td>{{client.company}}</td>
+            <td>{{client.status}}</td>
+            <td>
+              <a class="btn btn-primary"
+                 [routerLink]="['/edit', client.id]">
+                Edit
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

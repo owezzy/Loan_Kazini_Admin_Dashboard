@@ -1,0 +1,133 @@
+<div class="col-md-12" *ngIf="client">
+  <nb-card>
+    <nb-card-header>{{"Client Registration Edit" + client.firstName}}
+    </nb-card-header>
+    <nb-card-body>
+      <div>
+        <form (ngSubmit)="saveClient()"
+              [formGroup]="clientForm">
+          <div class="form-group row"
+               [ngClass]="{'has-error': displayMessage.firstName}">
+            <label for="FirstNameId" class="col-sm-3 col-form-label">First Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="FirstNameIdj  " placeholder="First Name"
+                     formControlName="firstName"/>
+              <span class="help-block" *ngIf="displayMessage.firstName">
+                {{displayMessage.firstName}}
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row"
+               [ngClass]="{'has-error': displayMessage.lastName }">
+            <label for="inputLastName" class="col-sm-3 col-form-label">Last Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputLastName" placeholder="Last Name"
+                     formControlName="lastName"/>
+              <span class="help-block" *ngIf="displayMessage.lastName">
+                {{displayMessage.lastName}}
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Gender</label>
+            <div class="col-sm-9">
+              <label class="radio-inline">
+                <input type="radio"
+                       value="male"
+                       formControlName="gender">Male
+              </label>
+              <label class="radio-inline">
+                <input type="radio"
+                       value="female"
+                       formControlName="gender">Female</label>
+            </div>
+          </div>
+
+          <div formGroupName="IdentificationGroup"
+               [ngClass]="{'has-error':clientForm.get('IdentificationGroup').errors}">
+            <div class="form-group row">
+              <label for="identificationNumber" class="col-sm-3 col-form-label">Identification Number</label>
+              <div class="col-sm-9">
+                <input type="text"
+                       class="form-control"
+                       id="identificationNumber"
+                       placeholder="Identification Number"
+                       formControlName="identificationNumber">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Type of ID</label>
+              <div class="col-sm-9">
+                <label class="radio-inline">
+                  <input type="radio" value="Passport" formControlName="typeOfIdentification">
+                  Passport
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" value="National ID" formControlName="typeOfIdentification">
+                  National ID
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row"
+               [ngClass]="{'has-error': displayMessage.phoneNumber }">
+            <label for="phoneNumber" class="col-sm-3 col-form-label">Phone</label>
+            <div class="col-sm-9">
+              <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number"
+                     formControlName="phoneNumber">
+              <span class="help-block" *ngIf="displayMessage.phoneNumber">
+                {{displayMessage.phoneNumber}}
+            </span>
+            </div>
+          </div>
+
+          <div class="form-group row"
+               [ngClass]="{'has-error': displayMessage.company}">
+            <label for="company" class="col-sm-3 col-form-label">Company</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="company" placeholder="Company"
+                     formControlName="company"/>
+              <span class="help-block" *ngIf="displayMessage.company">
+                {{displayMessage.company}}
+              </span>
+            </div>
+          </div>
+
+          <div class=" form-group row">
+            <label class="col-sm-3 col-form-label">Status</label>
+            <div class="col-sm-9">
+              <label class="radio-inline">
+                <input type="radio"
+                       value="approved"
+                       formControlName="status">Approved
+              </label>
+              <label class="radio-inline">
+                <input type="radio "
+                       checked
+                       value="notApproved"
+                       formControlName="status">Not Approved</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="row">
+        <button class="btn btn-primary"
+                type="submit"
+                [disabled]='!clientForm.valid'>
+          Save
+        </button>
+        <span>
+          <a class="btn btn-default" [routerLink]="['/all']"> Cancel </a>
+        </span>
+        <span>
+          <a class="btn btn-default" (click)="deleteProduct()">Delete</a>
+        </span>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</div>
