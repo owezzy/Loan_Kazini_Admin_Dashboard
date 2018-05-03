@@ -18,7 +18,7 @@ import {GenericValidator} from '../../../@core/data/generic-validator';
   templateUrl: './edit-client.component.html',
   styleUrls: ['./edit-client.component.scss'],
 })
-export class EditClientComponent implements OnInit, AfterViewInit, OnDestroy {
+export class EditClientComponent implements OnInit {
   @ViewChildren(FormControlName, {read: ElementRef}) formInputElements: ElementRef[];
 
   errorMessage: string;
@@ -83,21 +83,21 @@ export class EditClientComponent implements OnInit, AfterViewInit, OnDestroy {
       company: ['', Validators.required],
     });
 
-    // Read the client Id from the route parameter
-    this.sub = this.route.params.subscribe(
-      params => {
+    /**    // Read the client Id from the route parameter
+     this.sub = this.route.params.subscribe(
+     params => {
         let id = +params['id'];
         this.getClient(id);
       },
-    );
+     );
 
-  }
+     }
 
-  ngOnDestroy(): void {
+     ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
-  ngAfterViewInit(): void {
+     ngAfterViewInit(): void {
     // Watch for the blur event from any input element on the form.
     let controlBlurs: Observable<any>[] = this.formInputElements
       .map((formControl: ElementRef) => Observable.fromEvent(formControl.nativeElement, 'blur'));
@@ -108,7 +108,7 @@ export class EditClientComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  getClient(id: number): void {
+     getClient(id: number): void {
     this.clientService.getClient(id)
       .subscribe(
         (client: Client) => this.onClientRetrieved(client),
@@ -116,7 +116,7 @@ export class EditClientComponent implements OnInit, AfterViewInit, OnDestroy {
       );
   }
 
-  onClientRetrieved(client: Client): void {
+     onClientRetrieved(client: Client): void {
     if (this.clientForm) {
       this.clientForm.reset();
     }
@@ -132,7 +132,7 @@ export class EditClientComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  deleteProduct(): void {
+     deleteProduct(): void {
     if (this.client.id === 0) {
       // Don't delete, it was never saved.
       this.onSaveComplete();
@@ -147,7 +147,7 @@ export class EditClientComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  saveClient(): void {
+     saveClient(): void {
     if (this.clientForm.dirty && this.clientForm.valid) {
       // Copy the form values over the client object values
       let c = Object.assign({}, this.client, this.clientForm.value);
@@ -162,9 +162,11 @@ export class EditClientComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  onSaveComplete(): void {
+     onSaveComplete(): void {
     // Reset the form to clear the flags
     this.clientForm.reset();
     this.router.navigate(['/all']);
+  }
+     */
   }
 }

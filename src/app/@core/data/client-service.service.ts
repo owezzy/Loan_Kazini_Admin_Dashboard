@@ -17,6 +17,7 @@ export class ClientServiceService {
   constructor(private http: HttpClient) {
   }
 
+/**
   getClients(): Observable<Client[]> {
     return this.http.get(this.baseUrl )
       .map(this.extractData)
@@ -99,4 +100,6 @@ export class ClientServiceService {
       status: false,
     };
   }
+ */
 }
+

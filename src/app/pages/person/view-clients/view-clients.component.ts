@@ -16,8 +16,8 @@ export class ViewClientsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clientService.getClients()
-      .subscribe(clients => this.clients = clients,
-        error => this.errorMessage = <any>error);
+  //  this.clientService.getClients()
+    //  .subscribe(clients => this.clients = clients,
+      //  error => this.errorMessage = <any>error);
   }
 }

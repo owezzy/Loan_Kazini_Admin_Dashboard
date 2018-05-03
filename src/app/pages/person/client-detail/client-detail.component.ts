@@ -22,22 +22,24 @@ export class ClientDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.sub = this.route.params.subscribe(
+   /** this.sub = this.route.params.subscribe(
       params => {
         let id = +params['id'];
         this.getClient(id);
       });
+    */
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
-  getClient(id: number) {
+  /**getClient(id: number) {
     this.clientService.getClient(id).subscribe(
       client => this.client = client,
       error => this.errorMessage = <any>error);
   }
+   */
   onBack(): void {
     this.router.navigate(['/all']);
   }
