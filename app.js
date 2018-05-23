@@ -33,8 +33,8 @@ app.use(function(err, req, res, next) {
 });
 
 // mongoose setup
-var mongoose = require("mongoose");
-mongoose.Promise = require("bluebird");
+//var mongoose = require("mongoose");
+/mongoose.Promise = require("bluebird");
 mongoose
   .connect("mongodb://localhost/LoanKazini", {
     useMongoClient: true,
