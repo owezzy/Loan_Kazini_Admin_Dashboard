@@ -14,7 +14,7 @@
     "conventional-changelog": "conventional-changelog",
     "start": "node server.js",
     "build": "ng build",
-    "postinstall": "npm run build -- --prod --aot",
+    "build:prod": "npm run build -- --prod --aot",
     "test": "ng test -sr",
     "test:coverage": "rimraf coverage && npm run test -- -cc",
     "lint": "ng lint --type-check",
