@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {Client} from '../../pages/person/client';
-
+/*
 @Pipe({
   name: 'clientFilter',
 })
@@ -13,3 +13,4 @@ export class ClientFilterPipe implements PipeTransform {
   }
 
 }
+*/
