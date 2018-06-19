@@ -14,6 +14,7 @@
     "conventional-changelog": "conventional-changelog",
     "start": "node server.js",
     "build": "ng build",
+    "postinstall": "npm run build -- --prod --aot",
     "test": "ng test -sr",
     "test:coverage": "rimraf coverage && npm run test -- -cc",
     "lint": "ng lint --type-check",
@@ -26,7 +27,7 @@
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "postinstall": "ng build --aot -prod"
+    
   },
   "dependencies": {
     "@agm/core": "1.0.0-beta.2",
